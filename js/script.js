@@ -20,3 +20,7 @@ document.getElementById('colors-btn').addEventListener('click', () => {
   ]);
   console.log('Colori cambiati');
 });
+const canvas = document.getElementById('webgl-canvas');
+if (!canvas) {
+    console.error("Canvas non trovato. Assicurati che l'elemento con ID 'webgl-canvas' esista.");
+}
