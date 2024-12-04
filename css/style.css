@@ -24,18 +24,56 @@ body, html {
   }
 }
 
-/* Centratura del testo nell'intestazione */
+/* Hero Section: centratura e trasparenza */
 .hero {
-  height: 100vh; /* L'altezza prende tutto lo schermo */
+  height: 100vh; /* Altezza che occupa tutto lo schermo */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 15%; /* Margini laterali */
-  position: relative; /* Necessario per il contenitore */
-  z-index: 10; /* Assicura che stia sopra il canvas */
-  background: rgba(255, 255, 255, 0.8); /* Leggera trasparenza */
-  backdrop-filter: blur(5px); /* Sfocatura per il contrasto */
+  padding: 0 15%; /* Spazio laterale per evitare che tocchi i bordi */
+  position: relative; /* Posizione relativa per gestione livelli */
+  z-index: 10; /* Assicura che sia sopra il canvas */
+}
+
+.hero::before {
+  content: ''; /* Pseudo-elemento per il velo */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); /* Velo opaco */
+  z-index: -1; /* Assicura che stia dietro i testi */
+  backdrop-filter: blur(5px); /* Sfocatura per migliorare il contrasto */
+}
+
+/* Testo nell'intestazione */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  color: #060E2C;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #060E2C;
+  margin: 10px 0 0;
+  line-height: 1.4;
+}
+
+/* WebGL Canvas */
+#webgl-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Sempre dietro a tutto */
+  background: transparent; /* Assicura la trasparenza */
 }
 
 /* Sfere - Mantieni il canvas dietro il contenuto */
