@@ -28,15 +28,3 @@ document.getElementById('colors-btn').addEventListener('click', () => {
   console.log('Colors changed:', randomColors);
 });
 
-gsap.config({ trialWarn: false });
-
-let colorArray = ["#fbe46c", "#fe987b", "#d569fa", "#5f88ea", "#63cdeb", "#afff8a"];
-let interp = gsap.utils.interpolate(colorArray);
-
-gsap.timeline({ repeat: -1 })
-  .to("text", {
-    fill: () => interp(Math.random()),
-    duration: 2,
-    stagger: 0.3,
-    ease: "sine.inOut",
-  });

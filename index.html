@@ -9,28 +9,6 @@
 </head>
 <body>
   <div id="app">
-	  <div id="logo-container">
-	     <!-- Logo SVG -->
-		 <svg id="mainSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
-		   <defs>
-		     <filter id="glow" x="-100%" y="-100%" width="250%" height="250%">
-		       <feGaussianBlur stdDeviation="25" result="coloredBlur" />
-		       <feOffset dx="0" dy="0" result="offsetblur"></feOffset>
-		       <feFlood id="glowAlpha" flood-color="#FFF" flood-opacity="0.31"></feFlood>
-		       <feComposite in2="offsetblur" operator="in"></feComposite>
-		       <feMerge>
-		         <feMergeNode />
-		         <feMergeNode in="SourceGraphic"></feMergeNode>
-		       </feMerge>
-		     </filter>
-		   </defs>
-		   <!-- Testo animato -->
-		   <g filter="url(#glow)" font-family="Montserrat, sans-serif" font-weight="700" text-anchor="middle">
-		     <text x="540" y="500" font-size="100" fill="#fbe46c">BENJAMIN</text>
-		     <text x="540" y="600" font-size="80" fill="#63cdeb">EDUCATION</text>
-		   </g>
-		 </svg>
-	   </div>
     <div class="hero">
       <h1>Benjamin Education</h1>
       <h2>Portiamo l'intelligenza artificiale nella scuola per formare i cittadini del futuro.</h2>
