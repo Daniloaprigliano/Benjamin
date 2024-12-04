@@ -1,24 +1,24 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+import { Spheres1Background } from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.5/build/backgrounds/spheres1.cdn.min.js';
 
-console.log('Three.js caricato:', THREE);
+const bg = Spheres1Background(document.getElementById('webgl-canvas'), {
+  count: 300, // Numero di sfere
+  minSize: 0.3, // Dimensione minima delle sfere
+  maxSize: 1, // Dimensione massima delle sfere
+  gravity: 0.5 // Gravità iniziale
+});
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('webgl-canvas') });
+// Aggiunge l'evento per il pulsante della gravità
+document.getElementById('gravity-btn').addEventListener('click', () => {
+  bg.spheres.config.gravity = bg.spheres.config.gravity === 0 ? 1 : 0;
+  console.log('Gravità cambiata a:', bg.spheres.config.gravity);
+});
 
-renderer.setSize(window.innerWidth, window.innerHeight);
-
-const geometry = new THREE.SphereGeometry(1, 32, 32);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const sphere = new THREE.Mesh(geometry, material);
-
-scene.add(sphere);
-camera.position.z = 5;
-
-function animate() {
-    requestAnimationFrame(animate);
-    sphere.rotation.x += 0.01;
-    sphere.rotation.y += 0.01;
-    renderer.render(scene, camera);
-}
-animate();
+// Aggiunge l'evento per il pulsante dei colori
+document.getElementById('colors-btn').addEventListener('click', () => {
+  bg.spheres.setColors([
+    0xffffff * Math.random(),
+    0xffffff * Math.random(),
+    0xffffff * Math.random(),
+  ]);
+  console.log('Colori cambiati');
+});
