@@ -28,15 +28,15 @@ document.getElementById('colors-btn').addEventListener('click', () => {
   console.log('Colors changed:', randomColors);
 });
 
-let cTl = gsap.timeline({
-  defaults: {
-    duration: 1,
-    ease: 'power1.inOut',
-  },
-});
+gsap.config({ trialWarn: false });
 
-cTl.add('part1')
-  .to('#C', { y: 700 }, 'part1')
-  .to('#C', { morphSVG: { shape: '#longC' } }, 'part1')
-  .add('part2')
-  .to('#C', { morphSVG: { shape: '#shortC' } }, 'part2');
+let colorArray = ["#fbe46c", "#fe987b", "#d569fa", "#5f88ea", "#63cdeb", "#afff8a"];
+let interp = gsap.utils.interpolate(colorArray);
+
+gsap.timeline({ repeat: -1 })
+  .to("text", {
+    fill: () => interp(Math.random()),
+    duration: 2,
+    stagger: 0.3,
+    ease: "sine.inOut",
+  });
