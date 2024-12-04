@@ -7,7 +7,7 @@ const bg = Spheres1Background(document.getElementById('webgl-canvas'), {
     gravity: 0.5,
     friction: 0.99,
     maxVelocity: 0.2,
-    colors: [0x00ff00, 0xff0000, 0x0000ff], // Personalizza i colori
+    colors: [0x00ff00, 0xff0000, 0x0000ff],
 });
 
 document.getElementById('gravity-btn').addEventListener('click', () => {
