@@ -1,40 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js Sphere</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        #webgl-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-    </style>
-	<div id="app">
-	    <div class="hero">
-	        <h1>Benjamin Education</h1>
-	        <h2>Portiamo l'intelligenza artificiale nella scuola per formare i cittadini del futuro.</h2>
-	    </div>
-	    <div class="buttons">
-	        <button type="button" id="gravity-btn">Attiva/disattiva gravità</button>
-	        <button type="button" id="colors-btn">Cambia colori</button>
-	    </div>
-	</div>
+    <title>Benjamin Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="webgl-canvas"></canvas>
-    <script type="module" src="js/script.js"></script>
+
+    <div id="app">
+        <div class="hero">
+            <h1>Benjamin Education</h1>
+            <h2>Portiamo l'intelligenza artificiale nella scuola per formare i cittadini del futuro.</h2>
+        </div>
+        <div class="buttons">
+            <button id="gravity-btn">Attiva/disattiva gravità</button>
+            <button id="colors-btn">Cambia colori</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
