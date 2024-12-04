@@ -30,7 +30,7 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.7); /* Colore opaco */
+  background: rgba(255, 255, 255, 0.2); /* Colore opaco */
   z-index: -1; /* Dietro i testi */
   backdrop-filter: blur(10px); /* Effetto sfocatura */
 }
