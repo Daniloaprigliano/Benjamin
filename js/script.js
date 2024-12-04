@@ -27,3 +27,16 @@ document.getElementById('colors-btn').addEventListener('click', () => {
   bg.spheres.setColors(randomColors);
   console.log('Colors changed:', randomColors);
 });
+
+let cTl = gsap.timeline({
+  defaults: {
+    duration: 1,
+    ease: 'power1.inOut',
+  },
+});
+
+cTl.add('part1')
+  .to('#C', { y: 700 }, 'part1')
+  .to('#C', { morphSVG: { shape: '#longC' } }, 'part1')
+  .add('part2')
+  .to('#C', { morphSVG: { shape: '#shortC' } }, 'part2');

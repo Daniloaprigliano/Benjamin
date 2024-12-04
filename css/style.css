@@ -104,3 +104,17 @@ button:hover {
     padding: 6px 12px;
   }
 }
+/* Aggiunta per il logo animato */
+#logo-container {
+  position: relative;
+  width: 90%; /* Occupa il 90% della larghezza */
+  max-width: 600px; /* Limite massimo su schermi grandi */
+  margin: 0 auto; /* Centro per desktop */
+  z-index: 1;
+}
+
+#logo-container svg {
+  width: 100%;
+  height: auto; /* Adattamento dinamico */
+  visibility: hidden; /* Nasconde l'SVG finché non è pronto */
+}
