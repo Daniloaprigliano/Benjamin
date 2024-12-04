@@ -1,83 +1,116 @@
-/* Base styling */
-body, html {
+/* Corpo della pagina */
+body, html, #app {
   margin: 0;
-  padding: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Montserrat', sans-serif;
   background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0.5) 200%);
-  overflow: hidden;
 }
 
 #app {
   position: relative;
-  width: 100%;
   height: 100%;
-  text-align: center;
+  font-family: "Montserrat", serif;
 }
 
-/* Hero section */
 .hero {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 10%; /* Aggiunto padding per evitare che i testi tocchino i bordi su mobile */
+  text-align: center; /* Centro i testi su dispositivi mobili */
 }
 
 h1, h2 {
   margin: 0;
   padding: 0;
   color: black;
-  text-transform: none; /* Rimosso uppercase */
-  text-shadow: none; /* Opzionale, rimuovere effetti */
-  line-height: 1.2; /* Più leggibile */
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  line-height: 100%;
   user-select: none;
 }
 
 h1 {
-  font-size: 3rem; /* Adattato per migliore leggibilità */
+  position: relative;
+  z-index: 2;
+  font-size: 3rem; /* Dimensioni scalate per schermi più piccoli */
   font-weight: 700;
 }
 
 h2 {
-  font-size: 1.5rem; /* Leggermente più piccolo */
-  font-weight: 300;
-  color: #333; /* Colore più tenue */
+  font-size: 1.5rem; /* Dimensioni scalate per schermi più piccoli */
+  font-weight: 500;
 }
 
-/* Buttons */
-.buttons {
-  position: fixed;
-  bottom: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  z-index: 2;
-}
-
-button {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid grey;
-  border-radius: 5px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: rgba(255, 255, 255, 1);
-}
-
-/* Canvas styling */
 #webgl-canvas {
   position: fixed;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  overflow: hidden;
   z-index: 1;
+}
+
+.buttons {
+  position: fixed;
+  width: 100%;
+  bottom: 15px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  font-family: "Montserrat", serif;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: black;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 0 5%; /* Riduci ulteriormente il padding su schermi molto piccoli */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
 }
