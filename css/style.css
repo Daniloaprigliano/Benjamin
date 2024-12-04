@@ -24,15 +24,29 @@ body, html {
   }
 }
 
+/* Centratura del testo nell'intestazione */
 .hero {
-  height: 100vh; /* Occupa l'intera altezza della finestra */
+  height: 100vh; /* L'altezza prende tutto lo schermo */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 15%; /* Spazio laterale per evitare che i testi tocchino i bordi */
-  position: relative; /* Assicura che il contenuto si sovrapponga al canvas */
-  z-index: 2; /* Assicura che sia sopra le sfere */
+  padding: 0 15%; /* Margini laterali */
+  position: relative; /* Necessario per il contenitore */
+  z-index: 10; /* Assicura che stia sopra il canvas */
+  background: rgba(255, 255, 255, 0.8); /* Leggera trasparenza */
+  backdrop-filter: blur(5px); /* Sfocatura per il contrasto */
+}
+
+/* Sfere - Mantieni il canvas dietro il contenuto */
+#webgl-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Metti dietro l'intestazione e gli altri contenuti */
+  background: transparent; /* Mantiene lo sfondo del canvas trasparente */
 }
 
 h1 {
