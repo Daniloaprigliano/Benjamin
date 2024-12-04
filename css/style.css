@@ -2,59 +2,46 @@
 body, html {
   margin: 0;
   width: 100%;
-  height: auto; /* Consente al contenuto di espandersi */
-  min-height: 100%; /* Assicura che riempia almeno lo schermo */
-  overflow-y: auto; /* Consente lo scorrimento verticale */
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
   font-family: 'Montserrat', sans-serif;
   background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.5) 200%);
-  overflow: auto;
 }
 
-#app {
-  position: relative;
-  height: auto;
-  min-height: 100vh;
-  background: rgba(255, 255, 255, 0.8); /* Sfondo semi-trasparente */
-  z-index: 1;
-}
-
-  .intro, .services, .cta, footer {
-    position: relative;
-    z-index: 2; /* Sopra il canvas */
-  }
-}
-
-/* Hero Section: centratura e trasparenza */
+/* Hero Section */
 .hero {
-  height: 100vh; /* Altezza che occupa tutto lo schermo */
+  height: 100vh; /* Altezza piena dello schermo */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 15%; /* Spazio laterale per evitare che tocchi i bordi */
-  position: relative; /* Posizione relativa per gestione livelli */
-  z-index: 10; /* Assicura che sia sopra il canvas */
+  padding: 0 15%; /* Spazio laterale */
+  position: relative; /* Per posizionare lo pseudo-elemento */
+  z-index: 2;
+  text-align: center;
 }
 
+/* Velo opaco sotto i testi dell'intestazione */
 .hero::before {
-  content: ''; /* Pseudo-elemento per il velo */
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.7); /* Velo opaco */
-  z-index: -1; /* Assicura che stia dietro i testi */
-  backdrop-filter: blur(5px); /* Sfocatura per migliorare il contrasto */
+  background: rgba(255, 255, 255, 0.7); /* Colore opaco */
+  z-index: -1; /* Dietro i testi */
+  backdrop-filter: blur(10px); /* Effetto sfocatura */
 }
 
-/* Testo nell'intestazione */
+/* Testo dell'intestazione */
 .hero h1 {
   font-size: 3rem;
   font-weight: 700;
-  margin: 0;
   color: #060E2C;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  margin: 0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Leggera ombra per visibilità */
 }
 
 .hero h2 {
@@ -72,207 +59,6 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2; /* Sempre dietro a tutto */
-  background: transparent; /* Assicura la trasparenza */
-}
-
-/* Sfere - Mantieni il canvas dietro il contenuto */
-#webgl-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Metti dietro l'intestazione e gli altri contenuti */
-  background: transparent; /* Mantiene lo sfondo del canvas trasparente */
-}
-
-h1 {
-  font-size: 3rem; /* Dimensioni per desktop */
-  font-weight: 700;
-  margin: 0;
-  color: black;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 1);
-}
-
-h2 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: black;
-  margin: 10px 0 0;
-  line-height: 1.4;
-}
-
-h1, h2 {
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Ombra scura */
-}
-
-#webgl-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Sfondo dietro i contenuti */
+  z-index: -2; /* Dietro a tutto */
   background: transparent;
-}
-
-.buttons {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-button {
-  font-family: 'Montserrat', sans-serif;
-  background: rgba(255, 255, 255, 0.7);
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-button:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Responsività */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 1.2rem;
-    padding: 0 10%; /* Maggiore spazio laterale su mobile */
-  }
-  button {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 0 5%; /* Ridotto padding su schermi molto piccoli */
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1rem;
-  }
-  button {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-}
-
-/* Introduzione */
-.intro {
-  text-align: center;
-  margin: 50px auto;
-  padding: 0 20px;
-  font-size: 1.2rem;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Sezione servizi */
-.services {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 50px auto;
-  flex-wrap: wrap; /* Per gestire meglio gli schermi piccoli */
-  padding: 0 20px;
-}
-
-.service-card {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.service-card h3 {
-  font-size: 1.5rem;
-  color: #060E2C;
-  margin-bottom: 10px;
-}
-
-.service-card p {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* CTA */
-.cta {
-  text-align: center;
-  margin: 50px auto;
-}
-
-.cta button {
-  background-color: #060E2C;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.cta button:hover {
-  background-color: #333;
-  transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-  background: #060E2C;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  .services {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .service-card {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .cta button {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
 }
