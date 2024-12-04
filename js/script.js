@@ -1,5 +1,11 @@
 import { Spheres1Background } from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.5/build/backgrounds/spheres1.cdn.min.js';
 
+const canvas = document.getElementById('webgl-canvas');
+if (canvas) {
+  console.log('Canvas trovato:', canvas);
+} else {
+  console.error('Canvas non trovato!');
+}
 const bg = Spheres1Background(document.getElementById('webgl-canvas'), {
   count: 300, // Numero di sfere
   minSize: 0.3, // Dimensione minima delle sfere
