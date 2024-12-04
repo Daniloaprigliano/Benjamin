@@ -28,3 +28,7 @@ document.getElementById('colors-btn').addEventListener('click', () => {
   console.log('Colors changed:', randomColors);
 });
 
+// Modifica i colori delle sfere
+const bg = Spheres1Background(document.getElementById('webgl-canvas'), {
+  colors: [0x888888, 0xaaaaaa, 0xcccccc], // Colori più neutri
+});
