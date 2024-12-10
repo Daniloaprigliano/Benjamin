@@ -1,17 +1,18 @@
-$shamrock: #16dfaa;
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
-
+/* Corpo della pagina */
 body {
   margin: 0;
   padding: 0;
+  background-color: #16dfaa;
 }
 
+/* Sfondo della griglia */
 #grid {
   width: 100vw;
   height: 100vh;
-  background: $shamrock;
+  background: linear-gradient(135deg, #16dfaa, #0a754d);
 }
 
+/* Contenitore centrale */
 .k-hold {
   position: absolute;
   top: 50%;
@@ -23,6 +24,7 @@ body {
   cursor: pointer;
 }
 
+/* Sfondo nero */
 .k-black {
   display: block;
   width: 354px;
@@ -32,6 +34,7 @@ body {
   left: 0;
 }
 
+/* Pulsante */
 .k-enter {
   display: block;
   width: 354px;
@@ -42,13 +45,15 @@ body {
   border: none;
   background: transparent;
   cursor: pointer;
-  color: #fff;
+  color: #ffffff;
   font-size: 40px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
   font-family: "PT Sans Narrow", Impact, sans-serif;
   font-weight: 700;
 }
 
+/* Animazione del contorno */
 .k-stroke {
   opacity: 1;
   stroke-linecap: round;
@@ -57,13 +62,13 @@ body {
   stroke-dashoffset: 1000;
 }
 
+/* Posizionamento SVG */
 .k-black__stroke {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  -webkit-transform: translateZ(100px) scaleX(-1);
   transform: translateZ(100px) scaleX(-1);
 }
 
@@ -71,6 +76,5 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0);
 }
