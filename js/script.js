@@ -1,45 +1,40 @@
-import { Tween, Easing } from "https://unpkg.com/@tweenjs/tween.js@23.1.3/dist/tween.esm.js";
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.querySelector(".k-enter");
+  const stroke = document.querySelector("polygon.k-stroke");
 
-let r = null;
-const button = document.querySelector(".k-enter");
-const stroke = document.querySelector("polygon.k-stroke");
+  const progress = {
+    value: 1000,
+  };
 
-const progress = {
-  value: 1000,
-};
+  const tween = new TWEEN.Tween(progress)
+    .easing(TWEEN.Easing.Cubic.Out)
+    .onUpdate(() => {
+      stroke.style.setProperty("stroke-dashoffset", progress.value);
+    });
 
-const tween = new Tween(progress)
-  .easing(Easing.Cubic.Out)
-  .onUpdate(() => {
-    stroke.style.setProperty("stroke-dashoffset", progress.value);
+  function forward() {
+    tween.stop().to({ value: 2000 }, 3000).start();
+  }
+
+  function reverse() {
+    tween.stop().to({ value: 1000 }, 3000).start();
+  }
+
+  button.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    forward();
+    button.innerHTML = "Holding...";
   });
 
-function forward() {
-  tween.stop().to({ value: 2000 }, 3000).startFromCurrentValues();
-}
+  button.addEventListener("mouseup", () => {
+    reverse();
+    button.innerHTML = "Benjamin Education";
+  });
 
-function reverse() {
-  tween.stop().to({ value: 1000 }, 3000).startFromCurrentValues();
-}
+  function animate(time) {
+    TWEEN.update(time);
+    requestAnimationFrame(animate);
+  }
 
-button.addEventListener("mousedown", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  forward();
-  r = setTimeout(() => {
-    button.innerHTML = "Clicked";
-  }, 3000);
-});
-
-button.addEventListener("mouseup", () => {
-  reverse();
-  button.innerHTML = "Benjamin Education";
-  clearTimeout(r);
-});
-
-function animate(time) {
-  tween.update(time);
   requestAnimationFrame(animate);
-}
-
-requestAnimationFrame(animate);
+});
