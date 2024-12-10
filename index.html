@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benjamin Education</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #16dfaa;
+    }
+
+    #grid {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .k-hold {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 354px;
+      height: 354px;
+      margin-left: -177px;
+      margin-top: -177px;
+      cursor: pointer;
+    }
+
+    .k-enter {
+      display: block;
+      width: 354px;
+      height: 354px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: #fff;
+      font-size: 40px;
+      text-transform: uppercase;
+      font-family: "PT Sans Narrow", Impact, sans-serif;
+      font-weight: 700;
+    }
+
+    .k-black__stroke svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    .k-stroke {
+      opacity: 1;
+      stroke-linecap: round;
+      stroke-linejoin: mitter;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+    }
+  </style>
 </head>
 <body>
   <div id="grid"></div>
@@ -13,16 +67,4 @@
     <div class="k-black">
       <div class="k-black__stroke">
         <svg width="252" height="289" viewBox="0 0 252 289">
-          <polygon class="k-stroke" fill="transparent" stroke="#00AA86" stroke-width="4" points="126 1, 249 72, 249 216, 126 288, 2 216, 1 72"></polygon>
-        </svg>
-      </div>
-    </div>
-
-    <button type="button" class="k-enter">
-      Benjamin Education
-    </button>
-  </div>
-
-  <script type="module" src="js/script.js"></script>
-</body>
-</html>
+          <polygon class="k-stroke" fill="transparent" stroke="#00AA86
